@@ -70,7 +70,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 40.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             onboardingSlider(),
           ],
@@ -149,20 +149,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget buttonFollowSurvey() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ButtonFilled.primary(
-          text: 'Get Started',
-          fontSize: 20,
-          height: 60,
-          textColor: AppColors.bg,
-          backgroundColor: AppColors.white,
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const AuthPage();
-            }));
-          }),
-    );
+    return ButtonFilled.primary(
+        text: 'Get Started',
+        fontSize: 20,
+        height: 60,
+        textColor: AppColors.bg,
+        backgroundColor: AppColors.white,
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return const AuthPage();
+          }));
+        });
   }
 }
 
@@ -184,7 +181,7 @@ class CarouselItemWidget extends StatelessWidget {
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontStyle: FontStyle.italic,
-            fontSize: 40,
+            fontSize: 36,
             color: AppColors.white,
             fontWeight: FontWeight.bold,
           ),

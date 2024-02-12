@@ -6,6 +6,7 @@ import 'package:beaja/common/constants/styles/colors.dart';
 import 'package:beaja/common/constants/styles/padding.dart';
 import 'package:beaja/common/constants/styles/styles.dart';
 import 'package:beaja/pages/auth/forgot_password.dart';
+import 'package:beaja/pages/homepage/homepage.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -66,7 +67,10 @@ class _LoginPageState extends State<LoginPage> {
                 ButtonFilled.primary(
                   text: 'Login',
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const HomePage();
+                    }));
                   },
                   textColor: AppColors.white,
                   fontSize: 20,
