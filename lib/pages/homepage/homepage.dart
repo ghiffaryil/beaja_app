@@ -1,5 +1,7 @@
 import 'package:beaja/common/constants/styles/colors.dart';
 import 'package:beaja/common/constants/styles/styles.dart';
+import 'package:beaja/pages/product/product_detail.dart';
+import 'package:beaja/pages/product/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -28,7 +30,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Ionicons.location_outline,
                     color: AppColors.secondary,
                     size: 15,
@@ -73,9 +75,17 @@ class _HomePageState extends State<HomePage> {
                           'Popular',
                           style: TextStyles.large(),
                         ),
-                        Text(
-                          'See all',
-                          style: TextStyles.small(color: AppColors.primary),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return const ProductListPage();
+                            }));
+                          },
+                          child: Text(
+                            'See all',
+                            style: TextStyles.small(color: AppColors.primary),
+                          ),
                         )
                       ],
                     ),
@@ -88,12 +98,20 @@ class _HomePageState extends State<HomePage> {
                         scrollDirection: Axis.horizontal,
                         itemCount: 5,
                         itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            margin: const EdgeInsets.only(right: 10),
-                            width: 250,
-                            decoration: BoxDecoration(
-                              color: AppColors.primary,
-                              borderRadius: BorderRadius.circular(10),
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return const ProductDetailPage();
+                              }));
+                            },
+                            child: Container(
+                              margin: const EdgeInsets.only(right: 10),
+                              width: 250,
+                              decoration: BoxDecoration(
+                                color: AppColors.primary,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
                             ),
                           );
                         },

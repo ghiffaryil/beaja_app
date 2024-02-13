@@ -1,4 +1,5 @@
 // ignore_for_file: unused_field
+import 'package:beaja/common/components/divider.dart';
 import 'package:beaja/common/components/image_rounded.dart';
 import 'package:flutter/material.dart';
 import 'package:beaja/common/components/elevated_button.dart';
@@ -67,14 +68,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bg,
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 40.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            onboardingSlider(),
-          ],
-        ),
+      body: Column(
+        children: [
+          headerLogo(),
+          CustomDividers.smallDivider(),
+          onboardingSlider(),
+        ],
       ),
     );
   }
@@ -83,8 +82,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(children: [
-        // HEADER LOGO
-        headerLogo(),
         // SLIDER
         CarouselSlider(
           carouselController: _carouselController,
@@ -107,29 +104,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           }).toList(),
         ),
         // DOT
-        _currentIndex == 2
-            ? buttonFollowSurvey()
-            : Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: carouselItems.asMap().entries.map((entry) {
-                  return GestureDetector(
-                    onTap: () {
-                      _carouselController.animateToPage(entry.key);
-                    },
-                    child: Container(
-                      width: 15.0,
-                      height: 15.0,
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 10),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: _currentIndex == entry.key
-                              ? AppColors.primary
-                              : AppColors.light),
-                    ),
-                  );
-                }).toList(),
-              ),
+        _currentIndex == 2 ? buttonFollowSurvey() : indicatorDot(),
       ]),
     );
   }
@@ -137,7 +112,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget headerLogo() {
     return Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
-        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02),
+        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
         alignment: Alignment.center,
         child: const RoundedImage(
           imageUrl: Images.logosquare,
@@ -148,18 +123,44 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ));
   }
 
+  Widget indicatorDot() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: carouselItems.asMap().entries.map((entry) {
+        return GestureDetector(
+          onTap: () {
+            _carouselController.animateToPage(entry.key);
+          },
+          child: Container(
+            width: 15.0,
+            height: 15.0,
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: _currentIndex == entry.key
+                    ? AppColors.primary
+                    : AppColors.light),
+          ),
+        );
+      }).toList(),
+    );
+  }
+
   Widget buttonFollowSurvey() {
-    return ButtonFilled.primary(
-        text: 'Get Started',
-        fontSize: 20,
-        height: 60,
-        textColor: AppColors.bg,
-        backgroundColor: AppColors.white,
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return const AuthPage();
-          }));
-        });
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 50.0),
+      child: ButtonFilled.primary(
+          text: 'Get Started',
+          // fontSize: 15,
+          height: 50,
+          textColor: AppColors.bg,
+          backgroundColor: AppColors.white,
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const AuthPage();
+            }));
+          }),
+    );
   }
 }
 

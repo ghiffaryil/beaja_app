@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const primary = Color(0XFFF0731D);
-  static const secondary = Color(0XFF3F3D56);
+  static const secondary = Color(0XFFFECE78);
   static const notice = Color(0XFFE9f6FF);
   static const info = Color(0XFF1695E9);
   static const success = Color(0XFF21F01D);
@@ -14,4 +14,5 @@ class AppColors {
   static const bgLight = Color(0XFFF2F2F2);
   static const white = Colors.white;
   static const black = Colors.black;
+  static const muted = Color(0XFF3F3D56);
 }
