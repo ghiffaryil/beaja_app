@@ -19,6 +19,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: AppColors.white,
         title: const Text('Details'),
         actions: [
           IconButton(

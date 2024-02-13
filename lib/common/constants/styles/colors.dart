@@ -11,7 +11,7 @@ class AppColors {
   static const light = Color(0XFF8A8A8A);
   static const indicator = Color(0XFFB5B5B5);
   static const bg = Color(0XFF2A1D15);
-  static const bgLight = Color(0XFFF2F2F2);
+  static const bgLight = Color(0XFFEBE6DF);
   static const white = Colors.white;
   static const black = Colors.black;
   static const muted = Color(0XFF3F3D56);
