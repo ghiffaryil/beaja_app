@@ -3,6 +3,7 @@ import 'package:beaja/pages/homepage/homepage.dart';
 import 'package:beaja/pages/homepage/search.dart';
 import 'package:beaja/pages/product/product_detail.dart';
 import 'package:beaja/pages/product/product_list.dart';
+import 'package:beaja/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -34,24 +35,14 @@ class _BottomMenuState extends State<BottomMenu> {
     const HomePage(),
     const SearchPage(),
     const ProductListPage(),
-    const ProductDetailPage(),
+    const ProfilePage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(30), topLeft: Radius.circular(30)),
-        boxShadow: [
-          BoxShadow(
-              color: AppColors.primary.withOpacity(0.3),
-              spreadRadius: 0,
-              blurRadius: 10),
-        ],
-      ),
+      color: AppColors.white,
       child: ClipRRect(
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(35),

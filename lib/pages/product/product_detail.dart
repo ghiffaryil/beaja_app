@@ -5,6 +5,7 @@ import 'package:beaja/common/constants/styles/colors.dart';
 import 'package:beaja/common/constants/styles/padding.dart';
 import 'package:beaja/common/constants/styles/styles.dart';
 import 'package:flutter/material.dart';
+
 import 'package:ionicons/ionicons.dart';
 
 class ProductDetailPage extends StatefulWidget {
@@ -27,7 +28,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               icon: const Icon(
                 Ionicons.heart_outline,
                 color: AppColors.danger,
-                size: 35,
+                size: 30,
               ))
         ],
       ),

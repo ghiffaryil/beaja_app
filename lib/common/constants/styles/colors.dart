@@ -15,4 +15,5 @@ class AppColors {
   static const white = Colors.white;
   static const black = Colors.black;
   static const muted = Color(0XFF3F3D56);
+  static const bgprofile = Color(0XFFF5F5F8);
 }

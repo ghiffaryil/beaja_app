@@ -55,7 +55,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   void initState() {
-    _currentIndex = 0;
+    _currentIndex = 1;
     super.initState();
   }
 
@@ -86,6 +86,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         CarouselSlider(
           carouselController: _carouselController,
           options: CarouselOptions(
+              enableInfiniteScroll: false,
               height: MediaQuery.of(context).size.height * 0.65,
               autoPlay: false,
               enlargeCenterPage: true,
